@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+
+/* Thiết lập font chữ */
+* {
+    font-family: 'Poppins', cursive;
+}
+
+/* Căn chỉnh và định dạng chung cho trang */
+body {
+    color: azure;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Căn giữa các phần tử theo chiều dọc */
+    align-items: center;  /* Căn giữa các phần tử theo chiều ngang */
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hiệu ứng chữ chào mừng */
+.greetings {
+    font-size: 50px; /* Tăng kích thước chữ lớn hơn */
+    font-weight: 900;
+    text-align: center;  /* Căn giữa nội dung trong greetings */
+    animation: glow 2.5s ease-in-out infinite;
+    position: absolute;  /* Sử dụng absolute để căn giữa với parent */
+    top: 45%;  /* Căn từ trên 45% chiều cao */
+    left: 50%;  /* Căn từ trái 50% */
+    transform: translate(-50%, -50%);  /* Di chuyển phần tử về trung tâm chính xác */
+    z-index: 10;
+}
+
+.greetings > span {
+    animation: glow 2.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        color: #fff;
+        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
+    }
+    10%, 90% {
+        color: #111;
+        text-shadow: none;
+    }
+}
+
+.greetings > span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.greetings > span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.greetings > span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.greetings > span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+/* Định dạng phần mô tả */
+.description {
+    font-size: 3rem;  /* Điều chỉnh kích thước chữ */
+    text-align: center;
+    color: white;
+    position: absolute;  /* Sử dụng absolute để căn giữa với parent */
+    top: 30%;  /* Đặt khoảng cách từ trên xuống gần với .greetings */
+    left: 50%;  /* Căn từ trái 50% */
+    transform: translateX(-50%);  /* Di chuyển phần tử về trung tâm ngang */
+    z-index: 9;  /* Đảm bảo phần tử này không bị che khuất */
+}
+
+/* Định dạng cho nút */
+.button {
+    position: absolute;
+    top: 50%;  /* Đặt nút ở dưới phần .greetings và .description */
+    left: 50%;  /* Căn từ trái 50% */
+    transform: translateX(-50%);  /* Di chuyển phần tử về trung tâm ngang */
+    z-index: 8;  /* Đảm bảo nút không bị che khuất */
+    background-color: #f7faf7; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Xóa đường viền */
+    padding: 0px 0px; /* Kích thước nút */
+    font-size: 16px; /* Kích thước chữ */
+    cursor: pointer; /* Con trỏ chuột */
+    border-radius: 50px; /* Bo góc (50% để làm nút tròn hoàn toàn nếu chiều dài = chiều rộng) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    transition: background-color 0.3s ease;
+}
+
+.button a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    background-color: #fff; /* Màu nền đẹp */
+    border-radius: 50px;  /* Tạo các góc bo tròn */
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;  /* Thêm hiệu ứng hover */
+}
+
+/* Hiệu ứng hover cho nút */
+.button a:hover {
+    background-color: #2fa6b0;  /* Màu nền khi hover */
+    transform: scale(1.11);  /* Phóng to khi hover */
+}
+
+.button a:active {
+    transform: scale(0.98);  /* Hiệu ứng khi nhấn nút */
+}
+
+/* Hiệu ứng cho màn hình nhỏ */
+@media screen and (max-width: 574px) {
+    .greetings {
+        display: block;
+        font-size: 3rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .button a {
+        font-size: 0.5rem;
+    }
+}
